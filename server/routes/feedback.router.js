@@ -5,7 +5,22 @@ const pool = require('../modules/pool')
 
 // TODO: This route adds a new feedback entry
 router.post('/', (req, res) => {
+ const { feeling , understanding,support,comments} = req.body
 
+ const queryText = `
+ INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+VALUES ($1,$2,$3,$4)
+ `
+
+ pool.query(queryText,[feeling,understanding,support,comments])
+ .then((result=>{
+ console.log(result);
+    res.sendStatus(201)
+ }))
+   .catch((error)=>{
+   console.log("failed in router POST ", error);
+   res.sendStatus(500)
+ })
 })
 
 
@@ -21,5 +36,27 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     })
 })
+
+//router.put('/:id', (req, res) => {
+    //const { id } = req.params;
+   // const { feeling, understanding, support, comments } = req.body;
+
+    // Use the id parameter to identify the feedback entry to update
+    // Update the corresponding entry in your feedback table with the new values
+    //const sqlText = `UPDATE "feedback" 
+                    // SET "feeling" = $1, 
+                        // "understanding" = $2, 
+                       /// // "support" = $3, 
+                       // "comments" = $4 
+                  //   WHERE "id" = $5`;
+   // pool.query(sqlText, [feeling, understanding, support, comments, id])
+    //.then(result => {
+       //res.sendStatus(200); // Send a success response
+   // })
+   //.catch(err => {
+       // console.log(err);
+        //res.sendStatus(500); // Send an error response if something goes wrong
+   // });
+//});
 
 module.exports = router;

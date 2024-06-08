@@ -1,7 +1,4 @@
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import axios from "axios";
-
 import { useHistory } from 'react-router-dom';
 import { useState } from "react";
 
@@ -15,6 +12,7 @@ const FeelingForm = ()=>{
     const handleSubmit =(event)=>{
         event.preventDefault()
         console.log("submit works");
+     
 
        
             dispatch({ type: 'ADD_FEELING', payload: newFeeling});

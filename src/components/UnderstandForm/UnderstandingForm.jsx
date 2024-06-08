@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 

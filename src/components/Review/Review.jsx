@@ -41,7 +41,7 @@ const Review = () => {
 
     return (
         <>
-            <h2>Reviews</h2>
+            <h2>Review</h2>
             <ul>
                 {feeling.map((feel) => (
                     <li key={feel.id}>Feeling: {feel}</li>

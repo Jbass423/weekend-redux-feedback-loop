@@ -30,7 +30,7 @@ const CommentsForm = () => {
 
     return (
         <>
-            <h2>Any comments you want to leave?</h2>
+            <h2> comments you want to leave?</h2>
             <form onSubmit={handleSubmit}>
                 <input data-testid="input"
                     type="text"

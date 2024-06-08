@@ -17,7 +17,7 @@ const SuccessPage = ()=>{
 
    return(
     <>
-     <h1> <b>Congrats your submisson has been sent</b> </h1>
+     <h1> <b> Thank you and Congrats your submisson has been sent</b> </h1>
      <h2> <b>click the button to take another </b> </h2>
 
      <button data-testid="next" onClick={handleReset} > Restart </button>

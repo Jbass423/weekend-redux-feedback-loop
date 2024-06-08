@@ -43,26 +43,6 @@ router.get('/', (req, res) => {
     })
 })
 
-//router.put('/:id', (req, res) => {
-    //const { id } = req.params;
-   // const { feeling, understanding, support, comments } = req.body;
 
-    // Use the id parameter to identify the feedback entry to update
-    // Update the corresponding entry in your feedback table with the new values
-    //const sqlText = `UPDATE "feedback" 
-                    // SET "feeling" = $1, 
-                        // "understanding" = $2, 
-                       /// // "support" = $3, 
-                       // "comments" = $4 
-                  //   WHERE "id" = $5`;
-   // pool.query(sqlText, [feeling, understanding, support, comments, id])
-    //.then(result => {
-       //res.sendStatus(200); // Send a success response
-   // })
-   //.catch(err => {
-       // console.log(err);
-        //res.sendStatus(500); // Send an error response if something goes wrong
-   // });
-//});
 
 module.exports = router;

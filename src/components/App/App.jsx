@@ -7,6 +7,7 @@ import UnderstandingForm from '../UnderstandForm/UnderstandingForm';
 import SupportForm from '../SupportForm/SupportForm';
 import CommentsForm from '../CommentsForm/CommentsForm';
 import Review from '../Review/Review';
+import SuccessPage from './SuccessPage/SuccessPage';
 import { HashRouter as Router, Route } from "react-router-dom"
 import './App.css';
 
@@ -58,6 +59,9 @@ function App() {
       </Route>
       <Route exact path="/review">
         <Review/>
+      </Route>
+      <Route exact path="/success">
+        <SuccessPage />
       </Route>
 
     </div>

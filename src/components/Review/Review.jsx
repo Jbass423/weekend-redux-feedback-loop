@@ -21,20 +21,17 @@ const Review = () => {
             understanding: understanding[0],
             support: support[0],
             comments: comments[0],
-            date: new Date().toISOString(),  // Current date in ISO format
-            flagged: false  // Default to false
+            date: new Date().toISOString(),  
+            flagged: false  
         };
 
 
         axios.post('/api/feedback', feedbackData)
         .then((response) => {
             console.log("Feedback submitted:", response.data);
-            // Clear the state after successful submission
-            dispatch({ type: 'RESET_FEELING' });
-            dispatch({ type: 'RESET_UNDERSTANDING' });
-            dispatch({ type: 'RESET_SUPPORT' });
-            dispatch({ type: 'RESET_COMMENTS' });
-            history.push("/");
+            
+         
+            history.push("/success");
         })
         .catch((error) => {
             console.log('Error in Axios POST request:', error);

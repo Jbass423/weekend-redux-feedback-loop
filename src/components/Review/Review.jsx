@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Review = () => {
     const feelings = useSelector(store => store.feeling);
@@ -8,9 +9,16 @@ const Review = () => {
     const comments = useSelector(store => store.comments);
 
     const history = useHistory();
+    const dispatch = useDispatch()
 
     const handleSubmit = (event) => {
         event.preventDefault()
+
+        dispatch({ type: 'RESET_FEELING' })
+        dispatch({ type: 'RESET_UNDERSTANDING' })
+        dispatch({ type: 'RESET_SUPPORT' })
+        dispatch({ type: 'RESET_COMMENTS' })
+
         history.push("/");
 
     }

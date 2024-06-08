@@ -14,12 +14,18 @@ const feeling = (state = [], action)=> {
     if(action.type === 'ADD_FEELING'){
         return [ ...state, action.payload]
     }
+    if (action.type === 'RESET_FEELING'){
+        return []
+    }
     return state
 }
 
 const support = (state= [], action)=> {
     if(action.type === 'ADD_SUPPORT'){
         return [...state, action.payload]
+    }
+    if (action.type === 'RESET_SUPPORT'){
+        return []
     }
     return state
 }
@@ -28,12 +34,18 @@ const understanding =(state= [], action ) => {
     if(action.type === "ADD_UNDERSTANDING"){
         return [...state, action.payload]
     }
+    if (action.type === 'RESET_UNDERSTANDING'){
+        return []
+    }
     return state 
 }
 
 const comments = (state=[], action )=>{
     if(action.type === "ADD_COMMENT"){
         return [...state,action.payload]
+    }
+    if (action.type === 'RESET_COMMENTS'){
+        return []
     }
     return state 
 }

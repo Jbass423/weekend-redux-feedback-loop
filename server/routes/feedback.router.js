@@ -5,23 +5,29 @@ const pool = require('../modules/pool')
 
 // TODO: This route adds a new feedback entry
 router.post('/', (req, res) => {
- const { feeling , understanding,support,comments} = req.body
+    const { feeling, understanding, support, comments ,flagged,date} = req.body;
+  
+   
+    console.log('Received POST data:', req.body);
+  
+    const queryText = `
+      INSERT INTO "feedback" ("feeling", "understanding", "support", "comments","flagged","date")
+      VALUES ($1, $2, $3, $4, $5, $6)
+    `;
+  
 
- const queryText = `
- INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-VALUES ($1,$2,$3,$4)
- `
-
- pool.query(queryText,[feeling,understanding,support,comments])
- .then((result=>{
- console.log(result);
-    res.sendStatus(201)
- }))
-   .catch((error)=>{
-   console.log("failed in router POST ", error);
-   res.sendStatus(500)
- })
-})
+  
+    pool.query(queryText, [feeling, understanding, support, comments,flagged,date])
+      .then((result) => {
+        console.log('Query result:', result);
+        res.sendStatus(201);
+      })
+      .catch((error) => {
+        console.error('Failed in router POST:', error);
+        res.sendStatus(500);
+      });
+  });
+  
 
 
 // DO NOT EDIT THIS ROUTE

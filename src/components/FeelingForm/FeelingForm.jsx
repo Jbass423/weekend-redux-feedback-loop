@@ -34,7 +34,7 @@ const FeelingForm = ()=>{
         <form onSubmit={handleSubmit}>
         <input data-testid="input"
             
-            type="number"
+            type="text"
             placeholder=""
             value={newFeeling}
             onChange={(event)=> setNewFeeling(event.target.value)}

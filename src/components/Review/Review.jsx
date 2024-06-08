@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 
 const Review = () => {
-    const feelings = useSelector(store => store.feeling);
+    const feeling = useSelector(store => store.feeling);
     const understanding = useSelector(store => store.understanding);
     const support = useSelector(store => store.support);
     const comments = useSelector(store => store.comments);
@@ -12,36 +12,41 @@ const Review = () => {
     const history = useHistory();
     const dispatch = useDispatch()
 
+
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        axios.post('/api/feedback', {
-            feelings,
-            understanding,
-            support,
-            comments
-        })
-        .then((response)=>{
-            console.log("checking payload", response.data)
-        })
-        .catch((error)=>{
-            console.log('error in axios post jsx', error )
-        })
+        const feedbackData = {
+            feeling: feeling[0],  
+            understanding: understanding[0],
+            support: support[0],
+            comments: comments[0],
+            date: new Date().toISOString(),  // Current date in ISO format
+            flagged: false  // Default to false
+        };
 
-        dispatch({ type: 'RESET_FEELING' })
-        dispatch({ type: 'RESET_UNDERSTANDING' })
-        dispatch({ type: 'RESET_SUPPORT' })
-        dispatch({ type: 'RESET_COMMENTS' })
 
-        history.push("/");
+        axios.post('/api/feedback', feedbackData)
+        .then((response) => {
+            console.log("Feedback submitted:", response.data);
+            // Clear the state after successful submission
+            dispatch({ type: 'RESET_FEELING' });
+            dispatch({ type: 'RESET_UNDERSTANDING' });
+            dispatch({ type: 'RESET_SUPPORT' });
+            dispatch({ type: 'RESET_COMMENTS' });
+            history.push("/");
+        })
+        .catch((error) => {
+            console.log('Error in Axios POST request:', error);
+        });
+};
 
-    }
 
     return (
         <>
-           <h2>Reviews</h2>
+            <h2>Reviews</h2>
             <ul>
-                {feelings.map((feel) => (
+                {feeling.map((feel) => (
                     <li key={feel.id}>Feeling: {feel}</li>
                 ))}
             </ul>

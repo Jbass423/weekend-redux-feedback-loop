@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 
 const Review = () => {
     const feelings = useSelector(store => store.feeling);
@@ -13,6 +14,19 @@ const Review = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+
+        axios.post('/api/feedback', {
+            feelings,
+            understanding,
+            support,
+            comments
+        })
+        .then((response)=>{
+            console.log("checking payload", response.data)
+        })
+        .catch((error)=>{
+            console.log('error in axios post jsx', error )
+        })
 
         dispatch({ type: 'RESET_FEELING' })
         dispatch({ type: 'RESET_UNDERSTANDING' })
@@ -50,7 +64,7 @@ const Review = () => {
                 ))}
             </ul>
 
-            <button onClick={handleSubmit}>Reset</button>
+            <button data-testid="next" onClick={handleSubmit}>Reset</button>
         </>
     );
 }

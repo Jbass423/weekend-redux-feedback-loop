@@ -72,7 +72,7 @@ const AdminPage =() => {
               <TableCell >{feed.comments}</TableCell>
               <TableCell >{feed.flagged ? 'Yes' : 'No'}</TableCell>
               <TableCell >{new Date(feed.date).toLocaleDateString()}</TableCell>
-              <button onClick={() => handleDelete(feed.id)}>Delete</button>
+              <Button variant="outlined" onClick={() => handleDelete(feed.id)}>Delete</Button>
                                         </TableRow>
           ))}
         </TableBody>

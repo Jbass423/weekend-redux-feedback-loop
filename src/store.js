@@ -6,6 +6,9 @@ const feedback = (state= [], action) =>{
         if(action.type === 'GET_FEEDBACK'){
             return action.payload
         }
+        if( action.type === 'DELETE_FEEDBACK'){
+            return state.filter(feedback => feedback.id !== action.payload);
+        }
       
         return state
 }

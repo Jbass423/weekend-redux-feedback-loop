@@ -27,6 +27,25 @@ router.post('/', (req, res) => {
         res.sendStatus(500);
       });
   });
+
+  router.delete('/:id', (req, res) => {
+
+    const feedbackId = req.params.id;
+  
+    let queryText = `DELETE FROM "feedback" WHERE "id" = $1;`
+  
+    pool.query(queryText, [feedbackId])
+    .then((result) => {
+        console.log("remove successful!!!");
+        res.sendStatus(200)
+    })
+    .catch((err) => {
+        console.log("error in router Delete", err);
+        res.sendStatus(500)
+  
+    })
+   
+  });
   
 
 

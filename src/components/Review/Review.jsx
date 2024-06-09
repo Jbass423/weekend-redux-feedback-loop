@@ -10,8 +10,19 @@ const Review = () => {
     const comments = useSelector(store => store.comments);
 
     const history = useHistory();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+   
+const handleChange =(event)=>{
+    event.preventDefault()
 
+    dispatch({
+        type: "CHANGE_COMMENT"
+    })
+
+        history.push('/comments')
+
+
+}
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -62,11 +73,12 @@ const Review = () => {
 
             <ul>
                 {comments.map((comm) => (
-                    <li key={comm.id}>Comment: {comm}</li>
+                    <li key={comm.id}>Comment: {comm} <button onClick={handleChange}> change </button> </li>
+                   
                 ))}
             </ul>
 
-            <button data-testid="next" onClick={handleSubmit}>Reset</button>
+            <button data-testid="next" onClick={handleSubmit}>Submit</button>
         </>
     );
 }

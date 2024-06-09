@@ -47,6 +47,9 @@ const comments = (state=[], action )=>{
     if (action.type === 'RESET_COMMENTS'){
         return []
     }
+    if(action.type === 'CHANGE_COMMENT'){
+        return []
+    }
     return state 
 }
 

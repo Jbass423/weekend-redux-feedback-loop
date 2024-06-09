@@ -15,56 +15,56 @@ import './App.css';
 
 
 function App() {
-  const dispatch= useDispatch()
+  const dispatch = useDispatch()
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchFeedback()
-  },[])
+  }, [])
 
-  const fetchFeedback=()=>{
+  const fetchFeedback = () => {
     axios({
       method: 'GET',
       url: '/'
     })
-    .then((response)=>{
-      dispatch({
-        type: 'GET_FEEDBACK',
-        payload: response.data
+      .then((response) => {
+        dispatch({
+          type: 'GET_FEEDBACK',
+          payload: response.data
+        })
       })
-    })
-    .catch((error)=>{
-      console.log("failed in Get jsx", error)
-    })
+      .catch((error) => {
+        console.log("failed in Get jsx", error)
+      })
   }
 
   return (
     <Router>
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Feedback!</h1>
-        <h4>Don't forget it!</h4>
-      </header>
-      <Route exact path="/">
-      <FeelingForm/>
-      </Route>
+      <div className='App'>
+        <header className='App-header'>
+          <h1 className='App-title'>Feedback!</h1>
+          <h4>Don't forget it!</h4>
+        </header>
+        <Route exact path="/">
+          <FeelingForm />
+        </Route>
 
-      <Route exact path="/understanding">
-      <UnderstandingForm />
-      </Route>
-      <Route exact path="/support">
-        <SupportForm/>
-      </Route>
-      <Route exact path="/comments">
-        <CommentsForm/>
-      </Route>
-      <Route exact path="/review">
-        <Review/>
-      </Route>
-      <Route exact path="/success">
-        <SuccessPage />
-      </Route>
+        <Route exact path="/understanding">
+          <UnderstandingForm />
+        </Route>
+        <Route exact path="/support">
+          <SupportForm />
+        </Route>
+        <Route exact path="/comments">
+          <CommentsForm />
+        </Route>
+        <Route exact path="/review">
+          <Review />
+        </Route>
+        <Route exact path="/success">
+          <SuccessPage />
+        </Route>
 
-    </div>
+      </div>
     </Router>
   );
 }

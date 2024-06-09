@@ -8,6 +8,7 @@ import SupportForm from '../SupportForm/SupportForm';
 import CommentsForm from '../CommentsForm/CommentsForm';
 import Review from '../Review/Review';
 import SuccessPage from './SuccessPage/SuccessPage';
+import AdminPage from './AdminPage/AdminPage';
 import { HashRouter as Router, Route } from "react-router-dom"
 import './App.css';
 
@@ -24,9 +25,10 @@ function App() {
   const fetchFeedback = () => {
     axios({
       method: 'GET',
-      url: '/'
+      url: '/api/feedback'
     })
       .then((response) => {
+        console.log("checking repsonse", response)
         dispatch({
           type: 'GET_FEEDBACK',
           payload: response.data
@@ -62,6 +64,9 @@ function App() {
         </Route>
         <Route exact path="/success">
           <SuccessPage />
+        </Route>
+        <Route exact path="/admin">
+          <AdminPage/>
         </Route>
 
       </div>

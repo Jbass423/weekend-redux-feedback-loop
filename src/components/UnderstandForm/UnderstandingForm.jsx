@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Box from '@mui/material/Box';
 import { useState } from "react";
 
 
@@ -27,7 +28,10 @@ const UnderstandingForm = ()=>{
      }
      return(
         <>
-        <p>Understanding?</p>
+        
+        <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
+            <h2> <b>Understanding?</b></h2> 
+            </Box>
 
     
 <form onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import Box from '@mui/material/Box';
 import { useState } from "react";
 
 const FeelingForm = ()=>{
@@ -24,9 +25,11 @@ const FeelingForm = ()=>{
    
     return(
         <>
-        <h2> <b>How are you feeling today </b> </h2>
+       
 
-        <p>Feeling?</p>
+        <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
+        <h2> <b>How are you feeling today </b> </h2>
+    </Box>
 
     
         <form onSubmit={handleSubmit}>

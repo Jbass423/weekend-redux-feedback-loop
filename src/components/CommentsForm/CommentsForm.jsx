@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import Box from '@mui/material/Box';
 import { useState } from "react";
 
 
@@ -30,7 +31,10 @@ const CommentsForm = () => {
 
     return (
         <>
-            <h2> comments you want to leave?</h2>
+            
+            <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
+            <h2> <b>comments you want to leave?</b></h2>
+    </Box>
             <form onSubmit={handleSubmit}>
                 <input data-testid="input"
                     type="text"

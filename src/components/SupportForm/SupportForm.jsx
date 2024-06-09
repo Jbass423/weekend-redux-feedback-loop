@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import Box from '@mui/material/Box';
 import { useState } from "react";
 
 
@@ -32,7 +33,10 @@ const SupportForm = () => {
 
     return (
         <>
-            <h2> support?</h2>
+            
+            <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
+            <h2> <b>support?</b></h2>
+    </Box>
             <form onSubmit={ handleSubmit }>
                 <input data-testid="input"
                     type="number"

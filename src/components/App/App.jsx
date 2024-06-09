@@ -66,7 +66,7 @@ function App() {
           <SuccessPage />
         </Route>
         <Route exact path="/admin">
-          <AdminPage/>
+          <AdminPage />
         </Route>
 
       </div>

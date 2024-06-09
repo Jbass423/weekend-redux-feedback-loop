@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
+
+import { Button } from "@mui/material";
 import { useState } from "react";
 
 
@@ -8,43 +10,43 @@ const SupportForm = () => {
     const [support, setSupport] = useState('');
     const history = useHistory();
     const dispatch = useDispatch();
-  
-   
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
-     
 
-  
-            event.preventDefault()
-            console.log("submit works");
-    
-         
-                dispatch({
-                    type: 'ADD_SUPPORT',
-                    payload: support
-                });
-              
-                
-                history.push('/comments')
-          
+
+
+        event.preventDefault()
+        console.log("submit works");
+
+
+        dispatch({
+            type: 'ADD_SUPPORT',
+            payload: support
+        });
+
+
+        history.push('/comments')
+
     }
 
 
     return (
         <>
-            
+
             <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-            <h2> <b>support?</b></h2>
-    </Box>
-            <form onSubmit={ handleSubmit }>
+                <h2> <b>support?</b></h2>
+            </Box>
+            <form onSubmit={handleSubmit}>
                 <input data-testid="input"
                     type="number"
                     placeholder=""
                     value={support}
                     onChange={(event) => setSupport(event.target.value)}
                 />
-                <button data-testid="next" type="submit">Next</button>
+                <Button variant="outlined" data-testid="next" type="submit">Next</Button>
             </form>
         </>
     );

@@ -1,6 +1,8 @@
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+
+import { Button } from "@mui/material";
 import axios from "axios";
 
 const Review = () => {
@@ -11,43 +13,43 @@ const Review = () => {
 
     const history = useHistory();
     const dispatch = useDispatch();
-   
-const handleChange =(event)=>{
-    event.preventDefault()
 
-    dispatch({
-        type: "CHANGE_COMMENT"
-    })
+    const handleChange = (event) => {
+        event.preventDefault()
+
+        dispatch({
+            type: "CHANGE_COMMENT"
+        })
 
         history.push('/comments')
 
 
-}
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
 
         const feedbackData = {
-            feeling: feeling[0],  
+            feeling: feeling[0],
             understanding: understanding[0],
             support: support[0],
             comments: comments[0],
-            date: new Date().toISOString(),  
-            flagged: false  
+            date: new Date().toISOString(),
+            flagged: false
         };
 
 
         axios.post('/api/feedback', feedbackData)
-        .then((response) => {
-            console.log("Feedback submitted:", response.data);
-            
-         
-            history.push("/success");
-        })
-        .catch((error) => {
-            console.log('Error in Axios POST request:', error);
-        });
-};
+            .then((response) => {
+                console.log("Feedback submitted:", response.data);
+
+
+                history.push("/success");
+            })
+            .catch((error) => {
+                console.log('Error in Axios POST request:', error);
+            });
+    };
 
 
     return (
@@ -73,12 +75,12 @@ const handleChange =(event)=>{
 
             <ul>
                 {comments.map((comm) => (
-                    <li key={comm.id}>Comment: {comm} <button onClick={handleChange}> change </button> </li>
-                   
+                    <li key={comm.id}>Comment: {comm} <Button variant="outlined" onClick={handleChange}> change </Button> </li>
+
                 ))}
             </ul>
 
-            <button data-testid="next" onClick={handleSubmit}>Submit</button>
+            <Button variant="outlined" data-testid="next" onClick={handleSubmit}>Submit</Button>
         </>
     );
 }

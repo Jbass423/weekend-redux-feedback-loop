@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import { Button } from "@mui/material";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useState } from "react";
 
 const FeelingForm = () => {
@@ -43,7 +44,7 @@ const FeelingForm = () => {
                 />
 
 
-                <Button variant="outlined" data-testid="next" type="submit"> Next </Button>
+                <Button variant="outlined" data-testid="next" type="submit"> <ArrowForwardIcon/> </Button>
 
 
 

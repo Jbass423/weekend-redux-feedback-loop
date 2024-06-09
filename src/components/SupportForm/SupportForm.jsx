@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Button } from "@mui/material";
 import { useState } from "react";
 
@@ -37,16 +37,16 @@ const SupportForm = () => {
         <>
 
             <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-                <h2> <b>support?</b></h2>
+                <h2> <b>Support?</b></h2>
             </Box>
             <form onSubmit={handleSubmit}>
                 <input data-testid="input"
-                    type="number"
+                    type="text"
                     placeholder=""
                     value={support}
                     onChange={(event) => setSupport(event.target.value)}
                 />
-                <Button variant="outlined" data-testid="next" type="submit">Next</Button>
+                <Button variant="outlined" data-testid="next" type="submit"><ArrowForwardIcon/></Button>
             </form>
         </>
     );

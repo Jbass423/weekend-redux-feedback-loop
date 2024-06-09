@@ -1,7 +1,9 @@
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Box from '@mui/material/Box';
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import { useDispatch } from "react-redux";
-
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { Button } from "@mui/material";
 import axios from "axios";
 
@@ -56,31 +58,80 @@ const Review = () => {
         <>
             <h2>Review</h2>
             <ul>
-                {feeling.map((feel) => (
+            <Box
+      height={200}
+      width={200}
+      my={4}
+      display="flex"
+      alignItems="center"
+      gap={4}
+      p={2}
+      sx={{ border: '2px solid grey' }}
+    >
+        {feeling.map((feel) => (
                     <li key={feel.id}>Feeling: {feel}</li>
                 ))}
+    </Box>
+               
             </ul>
 
             <ul>
-                {understanding.map((under) => (
+            <Box
+      height={200}
+      width={200}
+      my={4}
+      display="flex"
+      alignItems="center"
+      gap={4}
+      p={2}
+      sx={{ border: '2px solid grey' }}
+    >
+         {understanding.map((under) => (
                     <li key={under.id}>Understanding: {under}</li>
                 ))}
+    </Box>
+
+                
             </ul>
 
             <ul>
-                {support.map((sup) => (
+            <Box
+      height={200}
+      width={200}
+      my={4}
+      display="flex"
+      alignItems="center"
+      gap={4}
+      p={2}
+      sx={{ border: '2px solid grey' }}
+    >
+       {support.map((sup) => (
                     <li key={sup.id}>Support: {sup}</li>
                 ))}
+    </Box>
+              
             </ul>
 
             <ul>
-                {comments.map((comm) => (
-                    <li key={comm.id}>Comment: {comm} <Button variant="outlined" onClick={handleChange}> change </Button> </li>
+            <Box
+      height={200}
+      width={200}
+      my={4}
+      display="flex"
+      alignItems="center"
+      gap={4}
+      p={2}
+      sx={{ border: '2px solid grey' }}
+    >
+          {comments.map((comm) => (
+                    <li key={comm.id}>Comment: {comm} <Button variant="outlined" onClick={handleChange}> Change  <ChangeCircleIcon/> </Button> </li>
 
                 ))}
+    </Box>
+            
             </ul>
 
-            <Button variant="outlined" data-testid="next" onClick={handleSubmit}>Submit</Button>
+            <Button variant="outlined" data-testid="next" onClick={handleSubmit}>Submit <ArrowUpwardIcon/></Button>
         </>
     );
 }

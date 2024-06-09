@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch } from "react-redux";
-
+import CreateIcon from '@mui/icons-material/Create';
 import { Button } from "@mui/material";
 
 const SuccessPage = () => {
@@ -22,7 +22,7 @@ const SuccessPage = () => {
          <h1> <b> Thank you and Congrats your submisson has been sent</b> </h1>
          <h2> <b>click the button to take another </b> </h2>
 
-         <Button variant="outlined" data-testid="next" onClick={handleReset} > Restart </Button>
+         <Button variant="outlined" data-testid="next" onClick={handleReset} >Take Another <CreateIcon/>  </Button>
       </>
    )
 }

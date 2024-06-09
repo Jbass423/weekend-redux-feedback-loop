@@ -9,6 +9,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -72,7 +74,7 @@ const AdminPage = () => {
                                 <TableCell >{feed.comments}</TableCell>
                                 <TableCell >{feed.flagged ? 'Yes' : 'No'}</TableCell>
                                 <TableCell >{new Date(feed.date).toLocaleDateString()}</TableCell>
-                                <Button variant="outlined" onClick={() => handleDelete(feed.id)}>Delete</Button>
+                                <Button variant="outlined" onClick={() => handleDelete(feed.id)}><PersonRemoveIcon/></Button>
                             </TableRow>
                         ))}
                     </TableBody>
@@ -81,7 +83,7 @@ const AdminPage = () => {
 
 
 
-            <Button onClick={sendHome} variant="outlined">HOME</Button>
+            <Button onClick={sendHome} variant="outlined"><HomeIcon/></Button>
         </>
     )
 }

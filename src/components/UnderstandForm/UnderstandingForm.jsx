@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Box from '@mui/material/Box';
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Button } from "@mui/material";
 import { useState } from "react";
 
@@ -45,7 +45,7 @@ const UnderstandingForm = () => {
                     onChange={(event) => setUnderstanding(event.target.value)}
                 />
 
-                <Button variant="outlined" data-testid="next" type="submit"> Next </Button>
+                <Button variant="outlined" data-testid="next" type="submit"> <ArrowForwardIcon/> </Button>
 
 
             </form>

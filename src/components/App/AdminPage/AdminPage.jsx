@@ -7,6 +7,14 @@ const AdminPage =() => {
 
   
     const feedbacks = useSelector(store => store.feedback)
+    const history = useHistory()
+
+    const sendHome = (event)=> { 
+        event.preventDefault()
+        
+
+        history.push("/")
+    }
     
     return(
         <>
@@ -37,6 +45,7 @@ const AdminPage =() => {
             })}
           </tbody>
         </table>
+        <button onClick={sendHome}>Home</button>
       </>
     )
 }
